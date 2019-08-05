@@ -24,7 +24,7 @@ export default {
   */
   css: [
     'uikit/dist/css/uikit.css',
-    '@/assets/css/main.scss',
+    '@/assets/styles/main.scss',
   ],
   /*
   ** Plugins to load before mounting the App
