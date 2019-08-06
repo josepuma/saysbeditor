@@ -18,10 +18,6 @@
 
 
 export default {
-    data(){
-        return{
-            
-        }
-    }
+    middleware: 'auth',
 }
 </script>

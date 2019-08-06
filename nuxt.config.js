@@ -43,12 +43,26 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    // Doc: https://auth.nuxtjs.org/#getting-started
+    '@nuxtjs/auth',
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: 'http://localhost:1337'
+  },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/auth/local', method: 'post', propertyName: 'jwt' },
+          logout: false,
+          user: false
+        }
+      }
+    }
   },
   /*
   ** Build configuration
