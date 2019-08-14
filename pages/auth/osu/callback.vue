@@ -16,13 +16,9 @@ export default {
         this.$axios.$post(
             `/auth/osu?code=${this.$route.query.code}`
         ).then(
-            (response) => {
-                this.$auth.setUserToken(
-                    `Bearer ${response.access_token}`
-                ).then(() => {
-                    this.$router.push('/')
-                })
-            }
+            (response) => this.$auth.setUserToken(`Bearer ${response.access_token}`)
+        ).then(
+            () => this.$router.push('/')
         ).catch(
             (error) => {
                 this.errored = true
