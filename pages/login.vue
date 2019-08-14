@@ -6,15 +6,11 @@
       .uk-section.headers
         h1.uk-margin-small Better Name Pending
         h2.uk-margin-remove Create, Innovate & Share
-        button(type="button" v-on:click="handleOsuLogin").uk-button.uk-button-primary.uk-width-1-1.uk-margin-small Log in with Osu!
+        button(type="button" v-on:click="handleOsuLogin").uk-button.uk-button-primary.uk-width-1-1.uk-margin-medium Log in with Osu!
 </template>
 
 <script>
 export default {
-  data: () => ({
-    user: "",
-    password: ""
-  }),
   methods: {
     handleOsuLogin: function () {
       this.$auth.loginWith('osu')
