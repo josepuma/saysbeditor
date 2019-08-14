@@ -55,12 +55,15 @@ export default {
   },
   auth: {
     strategies: {
-      local: {
-        endpoints: {
-          login: { url: '/auth/local', method: 'post', propertyName: 'jwt' },
-          logout: false,
-          user: false
-        }
+      osu: {
+        _scheme: 'oauth2',
+        authorization_endpoint: 'https://osu.ppy.sh/oauth/authorize',
+        scope: 'identify',
+        response_type: 'code',  
+        redirect_uri: process.env.osu_oauth_redirect_uri || 'http://localhost:3000/auth/osu/callback',
+        client_id: process.env.osu_oauth_client_id || 165,
+        
+        userinfo_endpoint: '/auth/osu/me',
       }
     }
   },

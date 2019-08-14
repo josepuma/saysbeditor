@@ -1,20 +1,12 @@
 <template lang="pug">
-    .uk-grid(uk-height-viewport="expand")
-        .side.uk-width-2-3
-            img.logo(src="@/assets/Background.svg" uk-svg)
-        .login.uk-width-1-3.uk-padding.uk-flex.uk-flex-column.uk-flex-center
-            .uk-section.headers
-                h1.uk-margin-small Better Name Pending
-                h2.uk-margin-remove Create, Innovate & Share
-            form(v-on:submit.prevent="handleSubmit").uk-section.uk-flex.uk-flex-column
-                span.uk-margin-small-bottom.uk-text-right Are you new around here? 
-                    a.uk-link sign up
-                input(v-model="user" type="text" placeholder="Username" required).secondary
-                input(v-model="password" type="password" placeholder="Password" required).uk-margin-top.secondary
-                div.uk-width-1-1.uk-margin-small-top
-                    button(type="submit").uk-button.uk-button-secondary.uk-width-1-4.uk-align-right.uk-margin-remove Log in
-                span.uk-margin-small-top.uk-text-right.uk-text-small Forgot password?
-
+  .uk-grid(uk-height-viewport="expand")
+    .side.uk-width-2-3
+      img.logo(src="@/assets/Background.svg" uk-svg)
+    .login.uk-width-1-3.uk-padding.uk-flex.uk-flex-column.uk-flex-center
+      .uk-section.headers
+        h1.uk-margin-small Better Name Pending
+        h2.uk-margin-remove Create, Innovate & Share
+        button(type="button" v-on:click="handleOsuLogin").uk-button.uk-button-primary.uk-width-1-1.uk-margin-small Log in with Osu!
 </template>
 
 <script>
@@ -24,13 +16,8 @@ export default {
     password: ""
   }),
   methods: {
-    handleSubmit: function() {
-      this.$auth.loginWith("local", {
-        data: {
-          identifier: this.user,
-          password: this.password,
-        }
-      });
+    handleOsuLogin: function () {
+      this.$auth.loginWith('osu')
     }
   }
 };
