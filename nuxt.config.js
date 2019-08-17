@@ -1,3 +1,4 @@
+const backend_url = process.env.backend_url || 'http://localhost:1337'
 
 export default {
   mode: 'spa',
@@ -51,19 +52,23 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'http://localhost:1337'
+    baseURL: backend_url
   },
   auth: {
     strategies: {
+      local: false,
       osu: {
         _scheme: 'oauth2',
         authorization_endpoint: 'https://osu.ppy.sh/oauth/authorize',
-        scope: 'identify',
-        response_type: 'code',  
-        redirect_uri: process.env.osu_oauth_redirect_uri || 'http://localhost:3000/auth/osu/callback',
-        client_id: process.env.osu_oauth_client_id || 165,
-        
         userinfo_endpoint: '/auth/osu/me',
+        scope: ['identify'],
+        access_type: 'offline',
+        access_token_endpoint: backend_url + '/auth/osu/token',
+        response_type: 'code',
+        grant_type:'authorization_code',
+        tokenType: 'Bearer',
+        redirect_uri: process.env.osu_oauth_redirect_uri || 'http://localhost:3000/login',
+        client_id: process.env.osu_oauth_client_id ||169,
       }
     }
   },
