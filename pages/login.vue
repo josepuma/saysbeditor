@@ -35,10 +35,11 @@ export default {
 
 .side {
   overflow: hidden;
-  max-height: 100vh;
+
   .logo {
+    height: 100vh;
     min-width: 100%;
-    transform: scale(1.5);
+    transform: scale(1.75);
   }
 }
 </style>
