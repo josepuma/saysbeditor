@@ -1,0 +1,20 @@
+$card-header-padding-horizontal:    $global-gutter;
+$card-header-padding-vertical:      round($global-gutter / 2);
+
+$card-header-padding-horizontal-l:  $global-medium-gutter;
+$card-header-padding-vertical-l:    $global-medium-gutter;
+
+$borderRadius: 15px;
+
+.uk-card {
+    color: $white;
+    border: 1px solid $foreground;
+    box-shadow: 0 0 5px transparentize($color: $white-dimmed, $amount: 0.55);
+    border-radius: $borderRadius;
+    background-color: $background-alt;
+
+    .uk-card-header {
+        background-color: $background;
+        border-radius: $borderRadius $borderRadius 0 0;
+    }
+}
