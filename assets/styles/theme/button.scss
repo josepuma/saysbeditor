@@ -1,4 +1,35 @@
+@mixin hollow($color: $white) {
+    color: $color;
+    border-color: $color;
+
+    &:hover, &:active, &:focus {
+        color: $white;
+    }
+}
+
 .uk-button {
     border-radius: 20px;
     font-weight: bold;
+
+    &.uk-button-hollow {
+        background: transparent;
+
+        @include hollow($white);
+
+        &.uk-button-default {
+            @include hollow($white);
+        }
+
+        &.uk-button-primary {
+            @include hollow($primary);
+        }
+
+        &.uk-button-secondary {
+            @include hollow($secondary);
+        }
+
+        &.uk-button-danger {
+            @include hollow($error);
+        }
+    }
 }
