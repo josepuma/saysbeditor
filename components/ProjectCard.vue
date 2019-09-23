@@ -58,9 +58,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/styles/_variables.scss';
+
 .project-card {
     $slide-color: transparentize($color: black, $amount: 0.5);
 
+    border: 1px solid $white-dimmed;
     height: 200px;
 
     overflow: hidden; /** Preserves parent border-radius (if any) */
