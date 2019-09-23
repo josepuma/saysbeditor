@@ -10,8 +10,8 @@ const createStore = () => {
       user: Cookie.getJSON('user')
     }),
     mutations: {
-      setAuth(state, { auth, user }) {
-        state.auth = auth
+      setAuth(state, token, user) {
+        state.auth = token
         state.user = user
       }
     },
