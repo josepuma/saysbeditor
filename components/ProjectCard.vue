@@ -7,7 +7,7 @@
                     span {{ artist }}
                 div.uk-flex.uk-flex-column
                     span Last updated
-                    span {{ lastUpdatedDate }}
+                    span {{ _updatedAt }}
         div.tags.uk-flex.uk-flex-row.uk-padding-small
             a(v-for="tag in _tags" :key="tag" href="#") {{ `#${tag}` }}
 
@@ -47,7 +47,7 @@ export default {
         }
     },
     computed: {
-        lastUpdatedDate: function () {
+        _updatedAt: function () {
             return new Date(this.updatedAt).toLocaleDateString()
         },
         _tags: function() {
