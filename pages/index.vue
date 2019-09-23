@@ -4,7 +4,14 @@
             div(class="")
                 h1 Welcome Back {{ this.$store.state.user.username }}!
                 h2.uk-margin-remove Your projects
-                
+                div(v-for="project in projects")
+                    project-card(
+                        :id="project.id"
+                        :title="project.name"
+                        :artist="project.artist"
+                        :updated-at="project.updated_at"
+                        :photo-url="`/api${project.cover.url}`"
+                    )
         div(class="uk-container uk-width-1-3@l uk-padding-remove")
             .uk-card.uk-height-1-1
                 .uk-card-header
@@ -14,15 +21,19 @@
 </template>
 
 <script>
-
+import ProjectCard from '~/components/ProjectCard'
 
 export default {
+    components: {
+        'project-card': ProjectCard
+    },
     middleware: 'authenticated',
     async asyncData(context) {
-        const projects = context.$axios
+        const projects = await context.$axios
             .get('/api/projects')
-
-            return { projects }
+            .then(({ data }) => data)
+        
+        return { projects }
     }
 }
 </script>

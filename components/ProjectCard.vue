@@ -1,5 +1,5 @@
 <template lang="pug">
-    div.uk-card
+    div(:style="`background-image: url(${photoUrl});`").uk-card
         div.uk-card-footer.uk-flex.uk-flex-row
             div.uk-flex.uk-flex-column
                 h3 {{ title }}
@@ -13,18 +13,18 @@
 <script>
 export default {
     props: {
-        id: String,
-        photo_url: {
+        id: Number,
+        photoUrl: {
             type: String,
             required: true
         },
         title: String,
         artist: String,
-        last_updated: Number,
+        updatedAt: String,
     },
     computed: {
         lastUpdatedDate: function () {
-            return new Date(this.lastUpdated).toLocaleString()
+            return new Date(this.updatedAt).toLocaleString()
         }
     }
 }
