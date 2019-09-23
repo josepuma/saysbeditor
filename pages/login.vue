@@ -9,6 +9,12 @@
           button(type="button").uk-button.uk-button-primary.uk-width-1-1 Log in with Discord!
 </template>
 
+<script>
+export default {
+  middleware: 'notAuthenticated'
+}
+</script>
+
 <style lang="scss">
 @import "@/assets/styles/_variables.scss";
 
