@@ -3,9 +3,9 @@
         div(class="uk-container uk-width-2-3@l")
             div.uk-width-1-1
                 h1 Welcome Back {{ this.$store.state.user.username }}!
-                h2.uk-margin-remove Your projects
-                div(class="uk-container uk-grid uk-grid-collapse uk-margin-top uk-margin-bottom uk-width-1-1")
-                    div(v-for="project in projects" class="uk-width-1-2@m uk-width-1-3@l")
+                h2 Your projects
+                div(class="uk-grid uk-child-width-expand@s uk-text-center")
+                    div(v-for="project in projects")
                         project-card(
                             :id="project.id"
                             :title="project.title"
@@ -34,7 +34,7 @@ export default {
     middleware: 'authenticated',
     methods: {
         handleCardClick(evt, id) {
-            this.$router.push(`/project/${id}/overview`)
+            this.$router.push(`/projects/${id}`)
         }
     },
     async asyncData(context) {
