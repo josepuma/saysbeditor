@@ -5,22 +5,9 @@
       div(class="uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-width-1-1 uk-height-1-1")
         h1.uk-margin-small Better Name Pending
         h2.uk-margin-remove Create, Innovate & Share
-        button(type="button" v-on:click="handleOsuLogin").uk-button.uk-button-primary.uk-width-1-1.uk-margin-medium Log in with Osu!
-        button(type="button" v-on:click="handleDiscordLogin").uk-button.uk-button-primary.uk-width-1-1 Log in with Discord!
+        a(href="/api/connect/discord").uk-width-1-1
+          button(type="button").uk-button.uk-button-primary.uk-width-1-1 Log in with Discord!
 </template>
-
-<script>
-export default {
-  methods: {
-    handleOsuLogin: function () {
-      this.$auth.loginWith('osu')
-    },
-    handleDiscordLogin: function() {
-      this.$auth.loginWith('discord')
-    }
-  }
-};
-</script>
 
 <style lang="scss">
 @import "@/assets/styles/_variables.scss";

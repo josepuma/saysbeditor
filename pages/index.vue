@@ -2,7 +2,7 @@
     div(class="uk-grid uk-grid-collapse uk-padding-large" uk-height-viewport)
         div(class="uk-container uk-width-2-3@l uk-grid")
             div(class="")
-                h1 Welcome Back {{ this.$auth.user.username }}!
+                h1 Welcome Back {{ this.$store.state.user.username }}!
                 h2.uk-margin-remove Your projects
                 
         div(class="uk-container uk-width-1-3@l uk-padding-remove")
@@ -17,6 +17,12 @@
 
 
 export default {
-    middleware: 'auth',
+    middleware: 'authenticated',
+    async asyncData(context) {
+        const projects = context.$axios
+            .get('/api/projects')
+
+            return { projects }
+    }
 }
 </script>

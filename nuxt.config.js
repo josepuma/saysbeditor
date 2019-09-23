@@ -44,8 +44,6 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc: https://auth.nuxtjs.org/#getting-started
-    '@nuxtjs/auth',
   ],
   /*
   ** Axios module configuration
@@ -56,37 +54,6 @@ export default {
   },
   proxy: {
     '/api/': { target: backend_url, pathRewrite: {'^/api/': ''} }
-  },
-  auth: {
-    strategies: {
-      local: false,
-      osu: {
-        _scheme: 'oauth2',
-        authorization_endpoint: 'https://osu.ppy.sh/oauth/authorize',
-        userinfo_endpoint: '/api/oauth/osu/@me',
-        scope: ['identify'],
-        access_type: 'offline',
-        access_token_endpoint: '/api/oauth/osu/token',
-        response_type: 'code',
-        grant_type:'authorization_code',
-        tokenType: 'Bearer',
-        redirect_uri: process.env.osu_oauth_redirect_uri || 'http://localhost:3000/login',
-        client_id: process.env.osu_oauth_client_id ||169,
-      },
-      discord: {
-        _scheme: 'oauth2',
-        authorization_endpoint: 'https://discordapp.com/api/oauth2/authorize',
-        userinfo_endpoint: '/api/oauth/discord/@me',
-        scope: ['identify', 'email'],
-        access_type: 'offline',
-        access_token_endpoint: '/api/oauth/discord/token',
-        response_type: 'code',
-        grant_type:'authorization_code',
-        tokenType: 'Bearer',
-        redirect_uri: process.env.osu_oauth_redirect_uri || 'http://localhost:3000/login',
-        client_id: '625464734585454624',
-      }
-    }
   },
   /*
   ** Build configuration
