@@ -4,8 +4,8 @@
             div.uk-width-1-1
                 h1 Welcome Back {{ this.$store.state.user.username }}!
                 h2 Your projects
-                div(class="uk-grid uk-child-width-expand@s uk-text-center")
-                    div(v-for="project in projects")
+                div(uk-grid)
+                    div(v-for="project in projects" class="uk-width-1-1@xs uk-width-1-2@s uk-width-1-3@m")
                         project-card(
                             :id="project.id"
                             :title="project.title"
