@@ -1,5 +1,5 @@
 <template lang="pug">
-    div(class="uk-grid uk-grid-collapse uk-padding-large" uk-height-viewport)
+    div(class="uk-grid uk-grid-collapse uk-padding-large")
         div(class="uk-container uk-width-2-3@l")
             div.uk-width-1-1
                 h1 Welcome Back {{ this.$store.state.user.username }}!
@@ -31,6 +31,7 @@ export default {
     components: {
         'project-card': ProjectCard
     },
+    layout: 'authenticated',
     middleware: 'authenticated',
     methods: {
         handleCardClick(evt, id) {
