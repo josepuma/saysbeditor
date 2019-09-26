@@ -1,5 +1,6 @@
 <template lang="pug">
-    img.avatar(:class="[size, status]" :data-src="url" uk-img)
+    img.avatar(v-if="url" :class="[size, status]" :data-src="url" uk-img)
+    font-awesome-icon(v-else prefix="far" icon="question" :class="[size, status]").avatar
 </template>
 
 <script>
@@ -25,9 +26,15 @@ export default {
     $size-medium: 120px;
     $size-big: 250px;
 
+    svg.avatar {
+        padding: 2em;
+    }
+
     .avatar {
         $padding-size: 6px;
         $border-size: 4px;
+
+        background-color: $foreground;
 
         padding: $padding-size;
         margin: $border-size;
