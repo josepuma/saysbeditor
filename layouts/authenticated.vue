@@ -5,13 +5,13 @@
       a(@click="handleTriggerClick").trigger
         font-awesome-icon(prefix="far" :icon="isTriggerActive ? 'times' : 'caret-down'")
       menu.items-wrapper
-        nuxt-link(to="/@me").menu-item
+        nuxt-link(@click.native="handleItemClick" to="/@me").menu-item
           font-awesome-icon(prefix="far" icon="user")
-        a.menu-item
+        nuxt-link(@click.native="handleItemClick" to="/projects/new").menu-item
           font-awesome-icon(prefix="far" icon="plus")
-        a.menu-item
+        nuxt-link(@click.native="handleItemClick" to="/projects").menu-item
           font-awesome-icon(prefix="far" icon="folder-open")
-        a.menu-item
+        nuxt-link(@click.native="handleItemClick" to="/@me/settings").menu-item
           font-awesome-icon(prefix="far" icon="cog")
 </template>
 
@@ -23,6 +23,9 @@ export default {
   methods: {
     handleTriggerClick() {
       this.isTriggerActive = !this.isTriggerActive
+    },
+    handleItemClick() {
+      this.isTriggerActive = false
     }
   }
 }
