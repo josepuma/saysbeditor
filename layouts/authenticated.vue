@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div.uk-padding-large
     nuxt
     div(:class="{ active: isTriggerActive }").menu-wrapper
       a(@click="handleTriggerClick").trigger
