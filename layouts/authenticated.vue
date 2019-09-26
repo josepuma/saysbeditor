@@ -1,13 +1,18 @@
 <template lang="pug">
   div
     nuxt
-    div(v-bind:class="{ active: isTriggerActive }").menu-wrapper
+    div(:class="{ active: isTriggerActive }").menu-wrapper
       a(@click="handleTriggerClick").trigger
+        font-awesome-icon(prefix="far" :icon="isTriggerActive ? 'times' : 'caret-down'")
       menu.items-wrapper
-        a.menu-item H
-        a.menu-item B
-        a.menu-item C
-        a.menu-item D
+        a.menu-item
+          font-awesome-icon(prefix="far" icon="user")
+        a.menu-item
+          font-awesome-icon(prefix="far" icon="plus")
+        a.menu-item
+          font-awesome-icon(prefix="far" icon="folder-open")
+        a.menu-item
+          font-awesome-icon(prefix="far" icon="cog")
 </template>
 
 <script>
@@ -56,18 +61,8 @@ $local-color: $primary;
 
     .trigger {
       box-shadow: inset 0 0 3px hsla(0, 0%, 0%, .3);
-
       &:active {
         box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, .4);
-        
-        .trigger i {
-          transform: rotate(-45deg);
-        }
-      }
-
-      i {
-        font-size: 1.3em;
-        transition: transform .2s;  
       }
     }
 

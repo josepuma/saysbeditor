@@ -26,12 +26,14 @@ export default {
   css: [
     'uikit/dist/css/uikit.css',
     '@/assets/styles/main.scss',
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-      { src: '~/plugins/uikit.js', ssr: false }
+      { src: '~/plugins/uikit.js', ssr: false },
+      '~/plugins/fontawesome.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -43,7 +45,7 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    '@nuxtjs/axios'
   ],
   /*
   ** Axios module configuration
