@@ -5,7 +5,7 @@
       a(@click="handleTriggerClick").trigger
         font-awesome-icon(prefix="far" :icon="isTriggerActive ? 'times' : 'caret-down'")
       menu.items-wrapper
-        a.menu-item
+        nuxt-link(to="/@me").menu-item
           font-awesome-icon(prefix="far" icon="user")
         a.menu-item
           font-awesome-icon(prefix="far" icon="plus")
