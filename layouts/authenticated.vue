@@ -117,7 +117,7 @@ $local-color: $primary;
       z-index: -1;
       display: block;
       text-decoration: none;
-      color: hsl(0, 0%, 100%);
+      color: $white;
       font-size: 1em;
       width: 3em;
       height: 3em;
@@ -128,7 +128,15 @@ $local-color: $primary;
       transition: transform .3s ease, background .2s ease;
 
       &:hover {
-        background-color: hsla(0,0%,0%,.3);        
+        background-color: hsla(0,0%,0%,.3);
+      }
+
+      &.nuxt-link-exact-active {
+        border: 2px solid $white;
+
+        &:hover {
+          background-color: hsla(0,0%,0%,.3);
+        }
       }
     }
   }
