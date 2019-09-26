@@ -11,6 +11,8 @@
 import Avatar from "~/components/Avatar"
 
 export default {
+    middleware: 'authenticated',
+    layout: 'authenticated',
     computed: {
         user_avatar_url: function () {
             return this.$store.state.user.avatar_url
