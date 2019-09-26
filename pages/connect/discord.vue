@@ -10,12 +10,12 @@ export default {
   async created() {
     const search = this.$route.fullPath.replace('/connect/discord?', '')
     const response = await this.$axios.get(`/api/auth/discord/callback?${search}`) // Let the API retrieve the token
-    const token = `Bearer ${response.data.jwt}`
+    const auth = `Bearer ${response.data.jwt}`
     const user = response.data.user
 
-    this.$store.commit('setAuth', token, user)
-    Cookie.set('auth', token, { expires: 7 })
-    Cookie.set('user', user, { expires: 7 })
+    await this.$store.dispatch('setAuth', { auth, user })
+    Cookie.set('auth', auth, { expires: 30 })
+    Cookie.set('user', user, { expires: 30 })
 
     this.$router.push('/')
   }

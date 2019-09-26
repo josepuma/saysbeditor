@@ -10,8 +10,8 @@ const createStore = () => {
       user: Cookie.getJSON('user')
     }),
     mutations: {
-      setAuth(state, token, user) {
-        state.auth = token
+      setAuth(state, { auth, user }) {
+        state.auth = auth
         state.user = user
       }
     },
@@ -22,11 +22,15 @@ const createStore = () => {
           const parsed = cookieparser.parse(req.headers.cookie)
           try {
             auth = JSON.parse(parsed.auth)
+            user = JSON.parse(parsed.user)
           } catch (err) {
             // No valid cookie found
           }
         }
-        commit('setAuth', auth)
+        commit('setAuth', { auth, user })
+      },
+      setAuth({ commit }, { auth, user }) {
+        commit('setAuth', { auth, user })
       }
     }
   })
