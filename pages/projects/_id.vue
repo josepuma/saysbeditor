@@ -7,6 +7,7 @@
 <script>
 export default {
   middleware: 'authenticated',
+  layout: 'authenticated',
   methods: {
     handleDelete() {
       const answer = confirm('Are you sure you want me to die? :(')
