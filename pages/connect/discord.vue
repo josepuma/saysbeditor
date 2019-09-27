@@ -1,6 +1,11 @@
 <template lang="pug">
-  div
-    h1 Retrieving your token and checking validity
+  div(
+    uk-height-viewport
+    class="uk-flex uk-flex-column uk-flex-center uk-flex-middle"
+    class="uk-width-1-1 uk-height-1-1"
+    class="uk-padding-large"
+  )
+    h2.placeholder Retrieving your token and checking validity...
 </template>
 
 <script>
@@ -20,8 +25,13 @@ export default {
     // Set cookies for further visits / reload
     Cookie.set('auth', auth, { expires: 30 })
     Cookie.set('user', user, { expires: 30 })
-
     this.$router.push('/')
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.placeholder {
+  word-break: normal;
+}
+</style>
