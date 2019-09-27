@@ -47,7 +47,7 @@ export default {
     const response = await ctx.$axios.post(`/api/graphql`, {
       query: `
         query {
-          projects(limit: 6, where: { owner: { id: ${ctx.store.state.user.id} } }) {
+          projects(sort: "updated_at:desc", limit: 6, where: { owner: { id: ${ctx.store.state.user.id} } }) {
             id
             name
             title
