@@ -7,7 +7,7 @@
           div(uk-grid)
             div(v-for="project in projects" class="uk-width-1-1@xs uk-width-1-2@s uk-width-1-3@m")
               project-card(
-                :id="project.id"
+                :id="Number(project.id)"
                 :title="project.title"
                 :name="project.name"
                 :artist="project.artist"
@@ -38,10 +38,25 @@ export default {
       this.$router.push(`/projects/${id}`);
     }
   },
-  async asyncData(context) {
-    const projects = await context.$axios
-      .get("/api/projects")
-      .then(({ data }) => data);
+  async asyncData(ctx) {
+    const response = await ctx.$axios.post(`/api/graphql`, {
+      query: `
+        query {
+          projects(limit: 10, where: { owner: { id: ${ctx.store.state.user.id} } }) {
+            id
+            name
+            title
+            artist
+            updated_at
+            cover {
+              url
+            }
+            tags
+          }
+        }
+      `
+    });
+    return { projects: response.data.data.projects };
 
     return { projects };
   }

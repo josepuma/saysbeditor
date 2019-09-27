@@ -1,7 +1,8 @@
 <template lang="pug">
   div
     div THIS PAGE IS A STUB FOR DEV TESTING
-    button(type="button" @click="handleDelete").uk-button.uk-button-danger DELETE
+    div(v-if="isOwner")
+      button(type="button" @click="handleDelete").uk-button.uk-button-danger DELETE
 </template>
 
 <script>
@@ -19,6 +20,9 @@ export default {
           })
       }
     }
+  },
+  computed: {
+    isOwner () { return this.project.owner.id === this.$store.state.user.id }
   },
   async asyncData(ctx) {
     const { id } = ctx.params
