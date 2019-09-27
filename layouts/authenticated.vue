@@ -9,9 +9,9 @@
           font-awesome-icon(prefix="far" icon="home")
         nuxt-link(@click.native="handleItemClick" to="/@me").menu-item
           font-awesome-icon(prefix="far" icon="user")
-        nuxt-link(@click.native="handleItemClick" to="/projects/new").menu-item
+        nuxt-link(@click.native="handleItemClick" to="/@me/projects/new").menu-item
           font-awesome-icon(prefix="far" icon="plus")
-        nuxt-link(@click.native="handleItemClick" to="/projects").menu-item
+        nuxt-link(@click.native="handleItemClick" to="/@me/projects").menu-item
           font-awesome-icon(prefix="far" icon="folder-open")
 </template>
 

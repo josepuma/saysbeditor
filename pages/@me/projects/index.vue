@@ -24,7 +24,7 @@ export default {
   layout: "authenticated",
   methods: {
     handleCardClick(evt, id) {
-      this.$router.push(`/projects/${id}`);
+      this.$router.push(`projects/${id}`);
     }
   },
   async asyncData(ctx) {

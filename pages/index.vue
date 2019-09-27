@@ -1,9 +1,9 @@
 <template lang="pug">
-    div(class="uk-grid uk-grid-collapse")
+    div(class="uk-grid uk-margin-remove")
       div(class="uk-width-2-3@l")
         div.uk-width-1-1
           h1 Welcome Back {{ this.$store.state.user.username }}!
-          h2 Your projects
+          h2 Your latest projects
           div(uk-grid)
             div(v-for="project in projects" class="uk-width-1-1@xs uk-width-1-2@s uk-width-1-3@m")
               project-card(
@@ -15,8 +15,13 @@
                 :photo-url="`/api${project.cover.url}`"
                 :tags="project.tags"
                 @click="handleCardClick"
-                )
-      div(class="uk-container uk-width-1-3@l uk-padding-remove")
+              )
+          nuxt-link(
+            to="/@me/projects"
+            class="uk-button uk-button-secondary uk-button-hollow"
+            class="uk-align-center"
+          ) More
+      div(class="uk-width-1-3@l")
         .uk-card.uk-height-1-1
           .uk-card-header
             h3.uk-card-title Recent Activity
@@ -35,14 +40,14 @@ export default {
   middleware: "authenticated",
   methods: {
     handleCardClick(evt, id) {
-      this.$router.push(`/projects/${id}`);
+      this.$router.push(`@me/projects/${id}`);
     }
   },
   async asyncData(ctx) {
     const response = await ctx.$axios.post(`/api/graphql`, {
       query: `
         query {
-          projects(limit: 10, where: { owner: { id: ${ctx.store.state.user.id} } }) {
+          projects(limit: 6, where: { owner: { id: ${ctx.store.state.user.id} } }) {
             id
             name
             title
