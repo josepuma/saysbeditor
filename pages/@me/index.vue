@@ -1,5 +1,5 @@
 <template lang="pug">
-    .uk-grid.uk-padding-large
+    .uk-grid
         div(class="profile uk-width-1-3@m uk-flex-center uk-flex-middle uk-flex-column uk-flex uk-margin-large-bottom")
             Avatar(:url="user_avatar_url" size="big" status="online")
             h2.uk-margin-small-top {{ this.$store.state.user.username }}
