@@ -16,6 +16,8 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  layoutTransition: 'layout',
+  pageTransition: 'page',
   /*
   ** Customize the progress-bar color
   */

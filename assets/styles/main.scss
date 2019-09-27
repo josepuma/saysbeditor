@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
-@import "variables.scss";
-@import "theme/index.scss";
+@import "variables";
+@import "theme/index";
+@import "transitions";
 
 html {
   font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI',
