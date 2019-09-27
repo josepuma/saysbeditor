@@ -1,6 +1,6 @@
 <template lang="pug">
-    div(class="uk-grid uk-margin-remove")
-      div(class="uk-width-2-3@l")
+    div(class="uk-grid")
+      div(class="uk-width-2-3@l")#projects
         div.uk-width-1-1
           h1 Welcome Back {{ this.$store.state.user.username }}!
           h2 Your latest projects
