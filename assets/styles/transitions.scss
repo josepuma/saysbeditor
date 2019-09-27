@@ -1,6 +1,7 @@
 $local-layout-duration:   500ms;
-$local-page-duration:     200ms;
+$local-page-duration:     400ms;
 
+/** Layout transition */
 .layout-enter-active, .layout-leave-active {
   transition:
     opacity $local-layout-duration ease-in-out;
@@ -10,9 +11,10 @@ $local-page-duration:     200ms;
   opacity: 0;
 }
 
+/** Page transition */
 .page-enter-active, .page-leave-active {
   transition:
-    opacity $local-page-duration ease-in,
+    opacity ($local-page-duration - $local-page-duration / 2) ease-in,
     transform $local-page-duration cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
