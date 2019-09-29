@@ -1,31 +1,23 @@
 @import "uikit/src/scss/components/variables.scss";
 @import "../variables";
 
-$input-height: $global-control-height;
-
-@mixin input {
+@mixin input($color: $secondary) {
     border-radius: 10px;
-    color: $white;
-    height: calc(#{$input-height});
-    font-size: 1rem;
-    padding: 10px 20px 10px 20px;
 
-    // Remove focus outline
-    outline: none;
+    background-color: $background;
+    border: $foreground solid 2px;
+    color: $white;
 
     &::placeholder {
         color: $white-dimmed;
     }
+    
+    &:focus {
+        background-color: $background;
+        border-color: $color;
+    }
 }
 
-input.secondary {
-    background-color: $background;
-    border: $secondary solid 2px;
-    @include input();
-}
-
-input.primary {
-    background-color: $background;
-    border: $primary solid 2px;
-    @include input();
+input.uk-input {
+    @include input($secondary);
 }
