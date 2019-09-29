@@ -12,12 +12,12 @@
         color: $white-dimmed;
     }
     
-    &:focus {
+    &:focus, &:focus-within {
         background-color: $background;
         border-color: $color;
     }
 }
 
-input.uk-input {
+form *.uk-input, .uk-input {
     @include input($secondary);
 }

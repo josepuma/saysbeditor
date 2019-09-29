@@ -32,10 +32,20 @@
               placeholder="John Doe"
               v-model="project.artist"
             ).uk-input
+
+      div(class="uk-width-1-1")
+        label(for="form-project-name").uk-form-label Tags
+          .uk-form-controls
+            tags
 </template>
 
 <script>
+import Tags from "~/components/Tags"
+
 export default {
+  components: {
+    'tags': Tags
+  },
   middleware: 'authenticated',
   layout: 'authenticated',
   data() {
