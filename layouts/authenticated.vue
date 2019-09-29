@@ -132,7 +132,8 @@ $local-color: $primary;
       }
 
       &.nuxt-link-exact-active {
-        border: 2px solid $white;
+        box-shadow: inset 0 0 3px hsla(0, 0%, 0%, .3);
+        border: 3px solid $white;
 
         &:hover {
           background-color: hsla(0,0%,0%,.3);
