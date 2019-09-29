@@ -7,25 +7,37 @@
       input(
         v-model="text"
         maxLength="25"
-        placeholder="Add some sweet tags here"
-        @keyup.enter="add"
+        :placeholder="placeholder"
+        @keyup.enter.prevent="add"
       ).tag-input.uk-width-expand
 </template>
 
 <script>
 export default {
+  props: {
+    placeholder: {
+      type: String,
+      required: false,
+      default: 'Add some sweet tags here'
+    }
+  },
+  model:  {
+    event: 'modified'
+  },
   methods: {
     add() {
       this.text = this.text.trim()
       if (this.text && this.tags.findIndex((v) => v === this.text) === -1) {
         this.tags.push(this.text)
         this.text = ""
+        this.$emit('modified', this.tags)
       }
     },
     remove(text) {
       const index = this.tags.findIndex((v) => v === text)
       if (index >= 0) {
         this.tags.splice(index, 1)
+        this.$emit('modified', this.tags)
       }
     }
   },

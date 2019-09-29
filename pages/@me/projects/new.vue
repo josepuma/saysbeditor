@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     h1 Create a new project
-    form(uk-grid).uk-grid-small
+    form(uk-grid @submit.prevent).uk-grid-small
 
       .uk-width-1-1
         label(for="form-project-name").uk-form-label Name
@@ -33,10 +33,14 @@
               v-model="project.artist"
             ).uk-input
 
-      div(class="uk-width-1-1")
+      .uk-width-1-1
         label(for="form-project-name").uk-form-label Tags
           .uk-form-controls
-            tags
+            tags(v-model="project.tags")
+      
+      .uk-width-1-1
+        button(type="button" @click="handleSubmit").uk-button.uk-button-primary Submit?
+      
 </template>
 
 <script>
@@ -56,6 +60,11 @@ export default {
         title: '',
         tags: []
       }
+    }
+  },
+  methods: {
+    handleSubmit() {
+      console.log(this.project)
     }
   }
 }
