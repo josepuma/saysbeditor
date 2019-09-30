@@ -1,7 +1,8 @@
 <template lang="pug">
   ul.tags.uk-input.uk-flex.uk-flex-center.uk-flex-middle
     li(v-for="(tag, index) in tags" :key="tag" :class="{ 'uk-margin-small-left': index !== 0 }").tag.uk-flex.uk-flex-center.uk-flex-middle
-      span {{ tag }}
+      div.uk-flex.uk-flex-center.uk-flex-middle
+        span {{ tag }}
         font-awesome-icon(@click="remove(tag)" prefix="far" icon="times").tag-remove.uk-margin-small-left
     li(:class="{ 'uk-margin-small-left': tags.length !== 0 }").uk-width-expand
       input(
@@ -9,7 +10,7 @@
         maxLength="25"
         :placeholder="placeholder"
         @keyup.enter.prevent="add"
-      ).tag-input.uk-width-expand
+      ).pseudo-input.tag-input.uk-width-expand
 </template>
 
 <script>
@@ -64,7 +65,7 @@ export default {
     padding-left: $local-tag-padding;
     padding-right: $local-tag-padding;
     height: 60%;
-    line-height: 10pt;  
+   
     .tag-remove {
       cursor: pointer;
     }
@@ -76,7 +77,7 @@ export default {
     height: 100%;
 
     color: $white;
-    font-size: 14px;
+    font-size: inherit;
 
     outline: none;
   }
