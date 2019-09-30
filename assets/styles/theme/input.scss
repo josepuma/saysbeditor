@@ -13,7 +13,7 @@
     }
     
     &:focus, &:focus-within {
-        background-color: $background;
+        background-color: $foreground;
         border-color: $color;
     }
 }

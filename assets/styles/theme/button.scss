@@ -1,9 +1,25 @@
-@mixin hollow($color: $white) {
-    color: $color;
-    border-color: $color;
+$button-primary-color:          $background;
+$button-primary-hover-color:    $background;
+$button-primary-active-color:   $background;
 
-    &:hover, &:active, &:focus {
-        color: $white;
+$button-secondary-color:        $background;
+$button-secondary-hover-color:  $background;
+$button-secondary-active-color: $background;
+
+$button-danger-color:           $background;
+$button-danger-hover-color:     $background;
+$button-danger-active-color:    $background;
+
+$button-secondary-color:        $background;
+$button-secondary-hover-color:  $background;
+$button-secondary-active-color: $background;
+
+@mixin hollow($color: $white) {
+    border-color: $color;
+    color: $color;
+
+    &:hover {
+        color: $background;
     }
 }
 
