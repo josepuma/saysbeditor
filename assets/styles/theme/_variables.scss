@@ -1,0 +1,22 @@
+
+// UI KIT OVERRIDE
+//
+// Typography
+//
+$global-font-family:            'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$global-emphasis-color:         $white;
+
+
+//
+// Colors
+//
+
+$global-color:                  $white;
+$global-muted-color:            $white-dimmed;
+
+$global-link-color:             $primary;
+$global-link-hover-color:       lighten($primary, 10%);
+
+$global-primary-background:     $primary;
+$global-secondary-background:   $secondary;
+$global-muted-background:       $foreground;
