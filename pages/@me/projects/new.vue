@@ -59,8 +59,8 @@
             @change="handleCoverChange"
           ).uk-hidden
 
-      .uk-width-1-1
-        button(type="button" @click="handleSubmit").uk-button.uk-button-primary Submit?
+      .uk-width-1-1.uk-flex.uk-flex-right
+        button(type="button" @click="handleSubmit").uk-button.uk-button-secondary Submit?
       
 </template>
 
