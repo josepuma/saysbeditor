@@ -1,6 +1,23 @@
 @import "uikit/src/scss/components/variables.scss";
 @import "../variables";
 
+$local-input-placeholder-duration: 300ms;
+
+@mixin placeholder-transition() {
+    &::placeholder {
+        transition:
+            transform $local-input-placeholder-duration,
+            color $local-input-placeholder-duration;
+    }
+
+    &:focus, &:focus-within {
+        &::placeholder {
+            transform: translateX(10px);
+            color: transparent;
+        }
+    }
+}
+
 @mixin input($color: $secondary) {
     border-radius: 10px;
 
@@ -16,8 +33,20 @@
         background-color: $foreground;
         border-color: $color;
     }
+
+    @include placeholder-transition();
 }
 
 form *.uk-input, .uk-input {
     @include input($secondary);
+}
+
+.pseudo-input {
+    @include placeholder-transition();
+
+    color: $white;
+
+    &::placeholder {
+        color: $white-dimmed;
+    }
 }
