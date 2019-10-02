@@ -7,7 +7,7 @@
     li(:class="{ 'uk-margin-small-left': tags.length !== 0 }").uk-width-expand
       input(
         v-model="text"
-        maxLength="25"
+        :maxLength="maxLength"
         :placeholder="placeholder"
         @keyup.enter.prevent="add"
       ).pseudo-input.tag-input.uk-width-expand
@@ -20,6 +20,11 @@ export default {
       type: String,
       required: false,
       default: 'Add some sweet tags here'
+    },
+    maxLength: {
+      type: Number,
+      required: false,
+      default: 25
     }
   },
   model:  {
