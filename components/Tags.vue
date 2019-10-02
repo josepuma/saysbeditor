@@ -9,7 +9,7 @@
         v-model="text"
         :maxLength="maxLength"
         :placeholder="placeholder"
-        @keyup.enter.prevent="add"
+        @keydown.188.prevent="add"
       ).pseudo-input.tag-input.uk-width-expand
 </template>
 
