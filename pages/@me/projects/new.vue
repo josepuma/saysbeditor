@@ -64,7 +64,7 @@
             @change="handleCoverChange"
           ).uk-hidden
 
-      .uk-width-1-1.uk-flex.uk-flex-right
+      .uk-width-1-1.uk-flex.uk-flex-right.uk-flex-middle
         button(type="submit").uk-button.uk-button-secondary Start
       
 </template>
